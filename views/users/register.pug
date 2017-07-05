@@ -1,0 +1,30 @@
+extends ../_layout
+block content
+    .container.login
+        .row
+            .col-md-6.col-md-offset-3
+                .panel.panel-login
+                    .panel-heading
+                        .row
+                            h1.col-md-12
+                                | Register
+                        hr
+                        .panel-body
+                        .row
+                            .col-md-4
+                            form#login-form(action="/register" method="POST" style='display: block;')
+                                .form-group
+                                input#register-username.form-control(type='text', name='username', tabindex='1', placeholder='Username')
+                                .form-group
+                                input#register-first-name.form-control(type='text', name='firstName', tabindex='1', placeholder='First name')
+                                .form-group
+                                input#register-last-name.form-control(type='text', name='lastName', tabindex='1', placeholder='Last name')
+                                .form-group
+                                input#register-email.form-control(type='email', name='email', tabindex='1', placeholder='Email')
+                                .form-group
+                                input#register-password.form-control(type='password', name='password', tabindex='2', placeholder='Password')
+                                .form-group
+                                    .row
+                                        .col-sm-6.col-sm-offset-3
+                                            input#register-submit.form-control.btn.btn-login(type='submit', tabindex='4', value='Register')
+
