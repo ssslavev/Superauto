@@ -197,3 +197,7 @@ nav {
     background-color: #1CA347;
     border-color: #1CA347;
 }
+
+#register-submit {
+    margin-top: 25px;
+}

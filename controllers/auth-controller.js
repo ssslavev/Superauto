@@ -1,4 +1,5 @@
-module.exports = function() {
+module.exports = function(data) {
+
     return {
         register(req, res) {
 
@@ -9,6 +10,12 @@ module.exports = function() {
                 email: req.body.email,
                 password: req.body.password
             }
+
+            data.usersData.create(user)
+                .then((user) => {
+                    res.status(201)
+                        .redirect('/')
+                });
 
 
         }
