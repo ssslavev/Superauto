@@ -1,6 +1,6 @@
 let mongodb = require('mongodb');
 
-module.exports = (connection) => {
+module.exports = (db) => {
     function create(user) {
 
         let userToCreate = {
@@ -12,46 +12,38 @@ module.exports = (connection) => {
 
         }
 
-        return new Promise((resolve, reject) => {
-            connection((err, db) => {
-                db.collection('users').save(userToCreate, (err, users) => {
-                    if (err) {
-                        return reject(err);
-                    }
-                    return resolve(users);
-                })
+
+        return db.then((db) => { return db })
+            .then((db) => {
+                return db.collection('users').insert(userToCreate);
             })
-        })
+            .catch((err) => {
+                console.log(err);
+            })
 
     }
 
     function findByUsername(username) {
 
-        return new Promise((resolve, reject) => {
-            connection((err, db) => {
-                db.collection('users').find({ username }, (err, user) => {
-                    if (err) {
-                        return reject(err);
-                    }
-                    return resolve(user);
-                })
+        return db.then((db) => { return db })
+            .then((db) => {
+                return db.collection('users').find({ username: username });
             })
-        })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     function getUserById(id) {
         let o_id = new mongodb.ObjectID(id);
 
-        return new Promise((resolve, reject) => {
-            connection((err, db) => {
-                db.collection('users').findOne({ "_id": o_id }, (err, user) => {
-                    if (err) {
-                        return reject(err);
-                    }
-                    return resolve(user);
-                })
+        return db.then((db) => { return db })
+            .then((db) => {
+                return db.collection('users').findOne({ "_id": o_id });
             })
-        });
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     return {

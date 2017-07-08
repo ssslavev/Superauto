@@ -15,9 +15,7 @@ module.exports = function(data) {
                 .then((user) => {
                     res.status(201)
                         .redirect('/')
-                });
-
-
+                })
         }
     };
 };

@@ -2,20 +2,17 @@ const app = require('./config/app.config');
 
 const PORT = require('./config/constants').port;
 
-let connection = require('./config/mongodb');
+const connectionString = require('./config/constants').connectionString;
 
-let data = require('./data')(connection);
+const db = require('./config/db')(connectionString);
+
+let data = require('./data')(db);
 
 require('./config/passport')({ app, data });
-
-app.use((req, res, next) => {
-
-    console.log(req.user + ' current user!')
-    next();
-})
 
 const controller = require("./controllers")(data);
 
 require('./routers')({ app, data, controller });
+
 
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
