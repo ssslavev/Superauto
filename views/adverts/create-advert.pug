@@ -1,0 +1,155 @@
+extends ../_layout
+block content
+    .container
+        #signupbox.mainbox.col-md-6.col-md-offset-3.col-md-8(style=' margin-top:5px')
+            .panel.panel-info
+                .panel-heading
+                    .panel-title CREATE ADVERT
+                .panel-body
+                    form(method='post', action='/advert')
+                        input(type='hidden', name='csrfmiddlewaretoken', value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S')
+                        form.form-horizontal(method='post')
+                            input(type='hidden', name='csrfmiddlewaretoken', value='XFe2rTYl9WOpV8U6X5CfbIuOZOELJ97S')
+                            #div_id_title.form-group.required
+                                label.control-label.col-md-4.requiredField(for='id_title')
+                                    | Title
+                                    span.asteriskField *
+                                .controls.col-md-8
+                                    input#id_title.input-md.textinput.textInput.form-control(maxlength='30', name='title', placeholder='Enter advert title', style='margin-bottom: 10px', type='text')
+                            #div_id_price.form-group.required
+                                label.control-label.col-md-4.requiredField(for='id_price')
+                                    | Price
+                                    span.asteriskField *
+                                .controls.col-md-8
+                                    input#id_price.input-md.emailinput.form-control(name='price', placeholder='Vehicle price', style='margin-bottom: 10px', type='text')
+                            #div_id_category.form-group.required
+                                label.control-label.col-md-4(for="category" class="active") Category
+                                div.col-md-8 
+                                    select(id="category" name="category" class="form-control" style='margin-bottom: 10px')
+                                        option(selected="") Select Category
+                                        option(value="car") Car
+                                        option(value="truck") Trucks 
+                                        option(value="motorcycle") Motorcycles      
+                            #div_id_manufacturer.form-group.required
+                                label.control-label.col-md-4.requiredField(for='id_manufacturer') Manufacturer
+                                div.col-md-8
+                                    select(id="manufacturer" name="manufacturer" class="form-control" style='margin-bottom: 10px')
+                                        option(selected="" value="") Select Make
+                                        option(label="Acura" value="acura") Acura
+                                        option(label="Alfa Romeo" value="alfa romeo") Alfa Romeo
+                                        option(label="Aston Martin" value="aston martin") Aston Martin
+                                        option(label="Audi" value="audi") Audi
+                                        option(label="Bentley" value="bentley") Bentley
+                                        option(label="BMW" value="bmw") BMW
+                                        option(label="Buick" value="buick") Buick
+                                        option(label="Cadillac" value="cadillac") Cadillac
+                                        option(label="Chevrolet" value="chevrolet") Chevrolet
+                                        option(label="Chrysler" value="chrysler") Chrysler
+                                        option(label="Dodge" value="dodge") Dodge
+                                        option(label="Ferrari" value="ferrari") Ferrari
+                                        option(label="FIAT" value="fiat") FIAT
+                                        option(label="Ford" value="ford") Ford
+                                        option(label="Genesis" value="genesis") Genesis
+                                        option(label="GMC" value="gmc") GMC
+                                        option(label="Honda" value="honda") Honda
+                                        option(label="Hyundai" value="hyundai") Hyundai
+                                        option(label="Infiniti" value="infiniti") Infiniti
+                                        option(label="Jaguar" value="jaguar") Jaguar
+                                        option(label="Jeep" value="jeep") Jeep
+                                        option(label="Kia" value="kia") Kia
+                                        option(label="Lamborghini" value="lamborghini") Lamborghini
+                                        option(label="Land Rover" value="land rover") Land Rover
+                                        option(label="Lexus" value="lexus") Lexus
+                                        option(label="Lincoln" value="lincoln") Lincoln
+                                        option(label="Lotus" value="lotus") Lotus
+                                        option(label="Maserati" value="maserati") Maserati
+                                        option(label="Mazda" value="mazda") Mazda
+                                        option(label="McLaren" value="mclaren") McLaren
+                                        option(label="Mercedes-Benz" value="mercedes benz") Mercedes-Benz
+                                        option(label="MINI" value="mini") MINI
+                                        option(label="Nissan" value="nissan") Nissan
+                                        option(label="Porsche" value="porshe") Porsche
+                                        option(label="Rolls-Royce" value="rolls-royce") Rolls-Royce
+                                        option(label="smart" value="smart") Smart
+                                        option(label="Subaru" value="subaru") Subaru
+                                        option(label="Tesla" value="tesla") Tesla
+                                        option(label="Toyota" value="toyota") Toyota
+                                        option(label="Volkswagen" value="volkswagen") Volkswagen
+                                        option(label="Volvo" value="volvo") Volvo    
+                            #div_id_engine.form-group.required
+                                label.control-label.col-md-4.requiredField(for='engine')
+                                    | Engine
+                                div.col-md-8
+                                    select(id="engine" name="engine" class="form-control" style='margin-bottom: 10px') 
+                                        option(selected="" value="") Select Engine-type 
+                                        option(value="gasoline") Gasoline
+                                        option(value="diesel") Diesel 
+                                        option(value="electric") Electric 
+                                        option(value="gasoline hybrid") Gasoline Hybrid
+                            #div_id_transmission.form-group.required
+                                label.control-label.col-md-4.requiredField(for='id_transmission') Transmission
+                                div.col-md-8
+                                    select(id="transmission" name="transmission" class="form-control" style='margin-bottom: 10px')
+                                        option(selected="" value="") Select transmission
+                                        option(value="automatic") Automatic 
+                                        option(value="automanual") Automanual 
+                                        option(value="manual") Manual    
+                            #div_id_year.form-group.required
+                                label.control-label.col-md-4.requiredField(for='id_year')
+                                    | Year
+                                div.col-md-8
+                                    select(id="year" name="year" class="form-control" style='margin-bottom: 10px') 
+                                        option(selected="" value="") Select year  
+                                        option(value="2016") 2016 
+                                        option(value="2015") 2015 
+                                        option(value="2014") 2014 
+                                        option(value="2013") 2013 
+                                        option(value="2012") 2012 
+                                        option(value="2011") 2011 
+                                        option(value="2010") 2010 
+                                        option(value="2009") 2009 
+                                        option(value="2008") 2008 
+                                        option(value="2007") 2007 
+                                        option(value="2006") 2006 
+                                        option(value="2005") 2005 
+                                        option(value="2004") 2004 
+                                        option(value="2003") 2003 
+                                        option(value="2002") 2002 
+                                        option(value="2001") 2001 
+                                        option(value="2000") 2000   
+                            #div_id_color.form-group.required
+                                label.control-label.col-md-4.requiredField(for='id_color')
+                                    | Color
+                                div.col-md-8
+                                    select(id="color" name="color" class="form-control" style='margin-bottom: 10px') 
+                                        option(selected="" value="") Choose Color
+                                        option(value="black") Black
+                                        option(value="blue") Blue
+                                        option(value="white") White 
+                                        option(value="red") Red    
+                            #div_id_region.form-group.required
+                                label.control-label.col-md-4.requiredField(for='id_region')
+                                    | Region
+                                div.col-md-8
+                                    select(id="location" name="region" class="form-control" style='margin-bottom: 10px') 
+                                        option(selected="" value="") Choose Region
+                                        option(value="Sofia") Sofia
+                                        option(value="Plovdiv") Plovdiv
+                                        option(value="Varna") Varna
+                                        option(value="Burgas") Burgas   
+                            #div_id_description.form-group.required
+                                label.control-label.col-md-4.requiredField(for='id_description')
+                                    | Description
+                                    span.asteriskField *
+                                .controls.col-md-8
+                                    input#id_description.input-md.textinput.textInput.form-control(maxlength='30', name='description', placeholder='Enter advert description', style='margin-bottom: 10px', type='text')
+                            #div_id_description.form-group.required
+                                label.control-label.col-md-4.requiredField(for='id_img')
+                                    | Picture
+                                    span.asteriskField *
+                                .controls.col-md-8
+                                    input#id_picture.input-md.textinput.textInput.form-control(maxlength='30', name='picture', placeholder='Enter picture URL', style='margin-bottom: 10px', type='text')        
+                            .form-group
+                                .aab.controls.col-md-4
+                                .controls.col-md-8
+                                    input#submit-id-create-add.btn.btn-primary.btn.btn-info(type='submit', name='Create add', value='Create advert')

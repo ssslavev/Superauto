@@ -10,7 +10,8 @@ module.exports = function({ app, controller }) {
                 successRedirect: '/',
                 failureRedirect: '/login',
                 failureFlash: true
-            }));
+            }))
+        .get('/logout', controller.logout);
 
     app.use(router);
 

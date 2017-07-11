@@ -86,6 +86,22 @@ nav {
     .nav-collapse>li {
         float: none;
     }
+    .navbar.navbar-default .nav-collapse,
+    .navbar.navbar-inverse .nav-collapse {
+        transform: translate(-100%, 0px);
+    }
+    .navbar.navbar-default .nav-collapse.in,
+    .navbar.navbar-inverse .nav-collapse.in {
+        transform: translate(0px, 0px);
+    }
+    .navbar.navbar-default .nav-collapse.slide-down,
+    .navbar.navbar-inverse .nav-collapse.slide-down {
+        transform: translate(0px, -100%);
+    }
+    .navbar.navbar-default .nav-collapse.in.slide-down,
+    .navbar.navbar-inverse .nav-collapse.in.slide-down {
+        transform: translate(0px, 0px);
+    }
 }
 
 .panel-login {
@@ -200,9 +216,4 @@ nav {
 
 #register-submit {
     margin-top: 25px;
-}
-
-main {
-    width: 960px;
-    margin: 0 auto;
 }

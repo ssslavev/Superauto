@@ -10,35 +10,34 @@ mixin site-navigation
                     span.icon-bar
                 a.navbar-brand(href='/') SUPERAUTO
             // Collect the nav links, forms, and other content for toggling
-            #navbar-collapse-2.collapse.navbar-collapse
-                ul.nav.navbar-nav.navbar-right
-                    li
-                        a(href='/') Home
-                    li
-                        a(href='/about') About
-                    li
-                        a(href='/services') Services
-                    li
-                        a(href='/works') Works
-                    li
-                        a(href='/login') Login
-                    li
-                        a(href='/register') Register
-                    if user
+            if user
+                #navbar-collapse-2.collapse.navbar-collapse
+                    ul.nav.navbar-nav.navbar-right
                         li
-                            a(href='/user-profile') Hello, #{user.firstName} #{user.lastName} 
-                                    
-                    li
-                        a.btn.btn-default.btn-outline.btn-circle(data-toggle='collapse', href='#nav-collapse2', aria-expanded='false', aria-controls='nav-collapse2') Sign in
-                #nav-collapse2.collapse.nav.navbar-nav.nav-collapse
-                    form.navbar-form.navbar-right.form-inline(role='form')
-                        .form-group
-                            label.sr-only(for='Email') Email
-                            input#Email.form-control(type='email', placeholder='Email', autofocus='', required='')
-                        .form-group
-                            label.sr-only(for='Password') Password
-                            input#Password.form-control(type='password', placeholder='Password', required='')
-                        button.btn.btn-success(type='submit') Sign in
-            // /.navbar-collapse
+                            a(href='/') Home
+                        li
+                            a(href='/about') About
+                        li
+                            a(href='/services') Services
+                        li
+                            a(href='/advert') Add new advert
+                        li
+                            a(href='/user-profile') Hello, #{user.firstName} #{user.lastName}
+                        li
+                            a(href='/logout') Logout
+
+            else
+                #navbar-collapse-2.collapse.navbar-collapse
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a(href='/') Home
+                        li
+                            a(href='/about') About
+                        li
+                            a(href='/services') Services
+                        li
+                            a(href='/login') Login
+                        li
+                            a(href='/register') Register
         // /.container
     // /.navbar

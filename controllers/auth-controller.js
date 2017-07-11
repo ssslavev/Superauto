@@ -16,6 +16,11 @@ module.exports = function(data) {
                     res.status(201)
                         .redirect('/')
                 })
+        },
+
+        logout(req, res) {
+            req.logout();
+            res.redirect('/');
         }
     };
 };
