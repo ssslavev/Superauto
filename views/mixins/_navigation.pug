@@ -20,9 +20,10 @@ mixin site-navigation
                         li
                             a(href='/services') Services
                         li
-                            a(href='/advert') Add new advert
+                            a(href='/advert') + Add new advert
                         li
-                            a(href='/user-profile') Hello, #{user.firstName} #{user.lastName}
+                            a(href='/user-profile') Hello, 
+                                span.loggedUser #{user.firstName} #{user.lastName} !    
                         li
                             a(href='/logout') Logout
 

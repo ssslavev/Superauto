@@ -1,7 +1,8 @@
 const passport = require('passport'),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
-    LocalStrategy = require('passport-local').Strategy;
+    LocalStrategy = require('passport-local').Strategy,
+    CryptoJs = require('crypto-js');
 
 module.exports = function({ app, data }) {
 
@@ -10,8 +11,12 @@ module.exports = function({ app, data }) {
             return data.usersData.findByUsername(username)
                 .then((user) => {
                     user.toArray(function(err, user) {
+                        if (user[0] && (user[0].password === CryptoJs.SHA1(password).toString())) {
+                            return done(null, user[0])
+                        } else {
+                            done(null, false)
+                        }
 
-                        return done(null, user[0])
                     });
 
 
