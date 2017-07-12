@@ -2,7 +2,9 @@ module.exports = function(data) {
     return {
         getCreateAdvertsForm(req, res) {
             if (req.isAuthenticated()) {
-                return res.render("adverts/create-advert");
+                return res.render("adverts/create-advert", {
+                    user: req.user
+                });
             } else {
                 res.redirect("/login");
             }
@@ -22,7 +24,8 @@ module.exports = function(data) {
                 region: req.body.region,
                 description: req.body.description,
                 picture: req.body.picture,
-                userId: req.user._id
+                userId: req.user._id,
+                author: req.user.username
             }
 
             data.advertsData.create(advert)

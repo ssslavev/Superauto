@@ -1,4 +1,41 @@
 extends ../_layout.pug
 
 block content
-    h1 TEST
+    .container#vehicles-container
+        .row
+            .col-sm-6.col-md-4
+                h1 CARS
+                each car in cars
+                    .thumbnail
+                        h4 Posted by:
+                            a(href="/users/"+car.userId)  #{car.author}                    
+                        img(src='http://blog.caranddriver.com/wp-content/uploads/2015/11/BMW-2-series.jpg', alt='...')
+                        .caption
+                            h3 #{car.title}
+                            p
+                                a.btn.btn-primary(href='#', role='button') Details
+            .col-sm-6.col-md-4
+                h1 TRUCKS
+                each truck in trucks
+                    .thumbnail
+                        h4 Posted by:
+                            a(href="/users/"+truck.userId)  #{truck.author}
+                        img(src="https://www.daimler.com/bilder/konzern/geschaeftsfelder/daimler-trucks/bildergalerie-1/mercedes-benz-futuretruck-w820xh328-cutout.jpg" , alt='...')
+                        .caption
+                            h3 #{truck.title}
+                            p
+                                a.btn.btn-primary(href='#', role='button') Details
+            .col-sm-6.col-md-4
+                h1 MOTORCYCLES
+                each motor in motorcycles
+                    .thumbnail
+                        h4 Posted by:
+                            a(href="/users/"+motor.userId)  #{motor.author}
+                        img(src='https://s-media-cache-ak0.pinimg.com/736x/68/cd/09/68cd097493362e8999621ca4a13b8e2f--kawasaki-motorcycles-sport-motorcycles.jpg', alt='...')
+                        .caption
+                            h3 #{motor.title}
+                            p
+                                a.btn.btn-primary(href='#', role='button') Details                                         
+                                           
+                            
+                                

@@ -15,7 +15,8 @@ module.exports = (db) => {
             region: advert.region,
             description: advert.description,
             picture: advert.picture,
-            userId: advert.userId
+            userId: advert.userId,
+            author: advert.author
 
         }
 
@@ -30,8 +31,16 @@ module.exports = (db) => {
 
     }
 
+    function getAllAdvertsByCategory(categoryName, limit) {
+        return db.then((db) => { return db })
+            .then((db) => {
+                return db.collection('adverts').find({ 'category': categoryName }).sort({ _id: -1 }).limit(limit).toArray();
+            })
+    }
+
     return {
         create,
+        getAllAdvertsByCategory
 
     };
 }
