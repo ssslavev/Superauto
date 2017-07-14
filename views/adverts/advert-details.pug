@@ -1,0 +1,21 @@
+extends ../_layout.pug
+
+block content
+    .container#vehicles-container.detail-container
+        .row
+            .col-sm-6.col-md-4
+                 img(src='http://blog.caranddriver.com/wp-content/uploads/2015/11/BMW-2-series.jpg', width="400" alt='...')
+            .col-sm-6.col-md-8
+                h1 #{advert.title}
+                hr
+                p Price: #{advert.price}lv.
+                p Category: #{advert.category}
+                p Manufacturer: #{advert.manufacturer}
+                p Engine type: #{advert.engine}
+                p Transmission type: #{advert.transmission}
+                p Color: #{advert.color}
+                p Year: #{advert.year}
+                p Region: #{advert.region}
+                p Description: #{advert.description}        
+                        
+                        

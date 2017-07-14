@@ -34,5 +34,16 @@ module.exports = function(data) {
                         .redirect('/')
                 })
         },
+
+        getById(req, res) {
+            let id = req.params.id
+            data.advertsData.getAdvertById(id)
+                .then((advert) => {
+                    return res.render('adverts/advert-details', {
+                        advert: advert,
+                        user: req.user
+                    })
+                })
+        }
     };
 };

@@ -38,9 +38,18 @@ module.exports = (db) => {
             })
     }
 
+    function getAdvertById(id) {
+        let o_id = new mongodb.ObjectID(id);
+        return db.then((db) => { return db })
+            .then((db) => {
+                return db.collection('adverts').findOne({ '_id': o_id })
+            })
+    }
+
     return {
         create,
-        getAllAdvertsByCategory
+        getAllAdvertsByCategory,
+        getAdvertById
 
     };
 }

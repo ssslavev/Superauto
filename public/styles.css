@@ -493,3 +493,8 @@ Footer */
 .loggedUser {
     color: blue;
 }
+
+.detail-container {
+    font-weight: bold;
+    font-size: 20px;
+}

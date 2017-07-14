@@ -13,7 +13,7 @@ block content
                         .caption
                             h3 #{car.title}
                             p
-                                a.btn.btn-primary(href='#', role='button') Details
+                                a.btn.btn-primary(href='/advert/'+car._id, role='button') Details
             .col-sm-6.col-md-4
                 h1 TRUCKS
                 each truck in trucks
@@ -24,7 +24,7 @@ block content
                         .caption
                             h3 #{truck.title}
                             p
-                                a.btn.btn-primary(href='#', role='button') Details
+                                a.btn.btn-primary(href='/advert/'+truck._id, role='button') Details
             .col-sm-6.col-md-4
                 h1 MOTORCYCLES
                 each motor in motorcycles
@@ -35,7 +35,7 @@ block content
                         .caption
                             h3 #{motor.title}
                             p
-                                a.btn.btn-primary(href='#', role='button') Details                                         
+                                a.btn.btn-primary(href='/advert/'+motor._id, role='button') Details                                         
                                            
                             
                                 
