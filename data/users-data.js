@@ -3,7 +3,7 @@ const CryptoJs = require('crypto-js');
 const sha1 = CryptoJs.SHA1;
 
 
-module.exports = (db) => {
+module.exports = (data) => {
     function create(user) {
         const userToCreate = {
             username: user.username,
@@ -11,13 +11,13 @@ module.exports = (db) => {
             lastName: user.lastName,
             email: user.email,
             password: sha1(user.password).toString(),
-
         };
 
 
-        return db.then((db) => {
-return db;
-})
+        return data
+            .then((db) => {
+                return db;
+            })
             .then((db) => {
                 return db.collection('users').insert(userToCreate);
             })
@@ -27,9 +27,10 @@ return db;
     }
 
     function findByUsername(username) {
-        return db.then((db) => {
-return db;
-})
+        return data
+            .then((db) => {
+                return db;
+            })
             .then((db) => {
                 return db.collection('users').find({ username: username });
             })
@@ -39,13 +40,14 @@ return db;
     }
 
     function getUserById(id) {
-        const o_id = new mongodb.ObjectID(id);
+        const oId = new mongodb.ObjectID(id);
 
-        return db.then((db) => {
-return db;
-})
+        return data
             .then((db) => {
-                return db.collection('users').findOne({ '_id': o_id });
+                return db;
+            })
+            .then((db) => {
+                return db.collection('users').findOne({ '_id': oId });
             })
             .catch((err) => {
                 console.log(err);
