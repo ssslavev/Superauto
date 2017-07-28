@@ -1,5 +1,6 @@
 const mongodb = require('mongodb');
 const CryptoJs = require('crypto-js');
+const sha1 = CryptoJs.SHA1;
 
 
 module.exports = (db) => {
@@ -9,7 +10,7 @@ module.exports = (db) => {
             firstName: user.firstName,
             lastName: user.lastName,
             email: user.email,
-            password: CryptoJs.sha1(user.password).toString(),
+            password: sha1(user.password).toString(),
 
         };
 

@@ -1,7 +1,8 @@
-module.exports = function(data) {
+module.exports = (data) => {
     return {
         home(req, res) {
-            Promise.all([data.advertsData.getAllAdvertsByCategory('car', 3),
+            Promise.all([
+                    data.advertsData.getAllAdvertsByCategory('car', 3),
                     data.advertsData.getAllAdvertsByCategory('truck', 3),
                     data.advertsData.getAllAdvertsByCategory('motorcycle', 3),
                 ])

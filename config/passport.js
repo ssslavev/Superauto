@@ -3,13 +3,14 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const LocalStrategy = require('passport-local').Strategy;
 const CryptoJs = require('crypto-js');
+const sha1 = CryptoJs.SHA1;
 
 module.exports = function({ app, data }) {
     passport.use(new LocalStrategy((username, password, done) => {
         return data.usersData.findByUsername(username)
             .then((User) => {
                 User.toArray((err, u) => {
-                    if (u[0] && (u[0].password === CryptoJs.sha1(password).toString())) {
+                    if (u[0] && (u[0].password === sha1(password).toString())) {
                         return done(null, u[0]);
                     }
                     return done(null, false);
