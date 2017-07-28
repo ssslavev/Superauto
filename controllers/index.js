@@ -1,16 +1,18 @@
-const fs = require("fs"),
-    path = require("path");
+/* globals __dirname */
+
+const fs = require('fs');
+const path = require('path');
 
 module.exports = function(data) {
-    let controllers = {};
+    const controllers = {};
     fs.readdirSync(__dirname)
-        .filter(file => file.includes("-controller"))
-        .forEach(file => {
-            let modulePath = path.join(__dirname, file);
-            let theModule = require(modulePath)(data);
+        .filter((file) => file.includes('-controller'))
+        .forEach((file) => {
+            const modulePath = path.join(__dirname, file);
+            const theModule = require(modulePath)(data);
 
             Object.keys(theModule)
-                .forEach(key => {
+                .forEach((key) => {
                     controllers[key] = theModule[key];
                 });
         });

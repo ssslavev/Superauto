@@ -1,16 +1,15 @@
 const app = require('./config/app.config');
-
 const PORT = require('./config/constants').port;
 
 const connectionString = require('./config/constants').connectionString;
 
 const db = require('./config/db')(connectionString);
 
-let data = require('./data')(db);
+const data = require('./data')(db);
 
 require('./config/passport')({ app, data });
 
-const controller = require("./controllers")(data);
+const controller = require('./controllers')(data);
 
 require('./routers')({ app, data, controller });
 

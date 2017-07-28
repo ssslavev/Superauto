@@ -1,26 +1,24 @@
 module.exports = function(data) {
-
     return {
         register(req, res) {
-
-            let user = {
+            const user = {
                 username: req.body.username,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
                 email: req.body.email,
-                password: req.body.password
-            }
+                password: req.body.password,
+            };
 
             data.usersData.create(user)
-                .then((user) => {
+                .then((u) => {
                     res.status(201)
-                        .redirect('/')
-                })
+                        .redirect('/');
+                });
         },
 
         logout(req, res) {
             req.logout();
             res.redirect('/');
-        }
+        },
     };
 };

@@ -2,17 +2,15 @@ module.exports = function(data) {
     return {
         getCreateAdvertsForm(req, res) {
             if (req.isAuthenticated()) {
-                return res.render("adverts/create-advert", {
-                    user: req.user
+                return res.render('adverts/create-advert', {
+                    user: req.user,
                 });
-            } else {
-                res.redirect("/login");
             }
+            return res.redirect('/login');
         },
 
         createAdvert(req, res) {
-
-            let advert = {
+            const advert = {
                 title: req.body.title,
                 price: req.body.price,
                 category: req.body.category,
@@ -25,25 +23,24 @@ module.exports = function(data) {
                 description: req.body.description,
                 picture: req.body.picture,
                 userId: req.user._id,
-                author: req.user.username
-            }
-
+                author: req.user.username,
+            };
             data.advertsData.create(advert)
-                .then((advert) => {
+                .then((adv) => {
                     res.status(201)
-                        .redirect('/')
-                })
+                        .redirect('/');
+                });
         },
 
         getById(req, res) {
-            let id = req.params.id
+            const id = req.params.id;
             data.advertsData.getAdvertById(id)
                 .then((advert) => {
                     return res.render('adverts/advert-details', {
                         advert: advert,
-                        user: req.user
-                    })
-                })
-        }
+                        user: req.user,
+                    });
+                });
+        },
     };
 };

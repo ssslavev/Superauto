@@ -1,8 +1,8 @@
 const express = require('express');
-let Router = express.Router;
+const Router = express.Router;
 
 module.exports = function({ app, controller }) {
-    let router = new Router();
+    const router = new Router();
     router.get('/advert', controller.getCreateAdvertsForm)
         .post('/advert', controller.createAdvert)
         .get('/advert/:id', controller.getById);
@@ -11,4 +11,4 @@ module.exports = function({ app, controller }) {
     app.use(router);
 
     return router;
-}
+};
