@@ -1,6 +1,6 @@
 const mongodb = require('mongodb');
 
-module.exports = (db) => {
+module.exports = (data) => {
     function create(advert) {
         const advertToCreate = {
             title: advert.title,
@@ -17,34 +17,38 @@ module.exports = (db) => {
             userId: advert.userId,
             author: advert.author,
         };
-        return db
-        .then((db) => {
-            return db;
-        })
-        .then((db) => {
-            return db.collection('adverts').insert(advertToCreate);
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+        return data
+            .then((db) => {
+                return db;
+            })
+            .then((db) => {
+                return db.collection('adverts').insert(advertToCreate);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     }
 
     function getAllAdvertsByCategory(categoryName, limit) {
-        return db.then((db) => {
-return db;
-})
+        return data
             .then((db) => {
-                return db.collection('adverts').find({ 'category': categoryName }).sort({ _id: -1 }).limit(limit).toArray();
+                return db;
+            })
+            .then((db) => {
+                return db.collection('adverts')
+                    .find({ 'category': categoryName })
+                    .sort({ _id: -1 }).limit(limit).toArray();
             });
     }
 
     function getAdvertById(id) {
-        const o_id = new mongodb.ObjectID(id);
-        return db.then((db) => {
-return db;
-})
+        const oId = new mongodb.ObjectID(id);
+        return data
             .then((db) => {
-                return db.collection('adverts').findOne({ '_id': o_id });
+                return db;
+            })
+            .then((db) => {
+                return db.collection('adverts').findOne({ '_id': oId });
             });
     }
 
