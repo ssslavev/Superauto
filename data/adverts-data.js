@@ -1,7 +1,12 @@
 const mongodb = require('mongodb');
+const Validate = require('./data-validator');
+const validatorInst = new Validate();
 
 module.exports = (data) => {
     function create(advert) {
+        if (!validatorInst.validateAdvert(advert)) {
+            return Promise.reject('Advert is in incorrect format');
+        }
         const advertToCreate = {
             title: advert.title,
             price: advert.price,

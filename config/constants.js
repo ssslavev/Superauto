@@ -8,7 +8,7 @@ const path = require('path');
 const rootPath = path.normalize(__dirname + '/../../');
 
 module.exports = {
-    environment: process.env.NODE_ENV,
+    // environment: process.env.NODE_ENV,
     connectionString: connectionString,
     port: port,
     rootPath: rootPath,
