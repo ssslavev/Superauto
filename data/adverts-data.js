@@ -57,9 +57,20 @@ module.exports = (data) => {
             });
     }
 
+    function getAdvertsByUser(userId) {
+        return data
+            .then((db) => {
+                return db;
+            })
+            .then((db) => {
+                return db.collection('adverts').find({ 'userId': userId });
+            });
+    }
+
     return {
         create,
         getAllAdvertsByCategory,
         getAdvertById,
+        getAdvertsByUser,
     };
 };

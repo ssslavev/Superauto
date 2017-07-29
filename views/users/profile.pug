@@ -10,3 +10,5 @@ block content
                 hr
                 p Name: #{user.firstName + ' ' + user.lastName}
                 p Email: #{user.email}
+                form(action='/user-adverts', method='get')
+                    input#frm1_submit(type='submit', value='Show my adverts', name='Submit')

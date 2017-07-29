@@ -1,7 +1,7 @@
 const services = () => {
     return {
         services(req, res) {
-            return res.render('services/services.pug', {
+            return res.render('services/services', {
                 user: req.user });
         },
     };
