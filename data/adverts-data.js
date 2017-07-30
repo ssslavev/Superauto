@@ -63,9 +63,7 @@ module.exports = (data) => {
                 return db;
             })
             .then((db) => {
-                return db.collection('adverts')
-                    .find({ 'userId': userId })
-                    .toArray();
+                return db.collection('adverts').find({ 'userId': userId });
             });
     }
 
