@@ -42,5 +42,12 @@ module.exports = function(data) {
                     });
                 });
         },
+
+        getAllAdverts(req, res) {
+            data.advertsData.getAdvertsAll()
+            .then((adverts) => {
+                res.json(adverts);
+            });
+        },
     };
 };

@@ -69,8 +69,24 @@ module.exports = (data) => {
             });
     }
 
+    function getAdvertsAll() {
+        return data
+            .then((db) => {
+                return db;
+            })
+            .then((db) => {
+                return db.collection('adverts')
+                .find({})
+                .toArray();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
     return {
         create,
+        getAdvertsAll,
         getAllAdvertsByCategory,
         getAdvertById,
         getAdvertsByUser,
