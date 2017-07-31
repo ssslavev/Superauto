@@ -58,9 +58,23 @@ module.exports = (data) => {
             });
     }
 
+    function getAllUsernames() {
+        return data
+            .then((db) => {
+                return db;
+            })
+            .then((db) => {
+                return db.collection('users').find({}).toArray();
+            })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
+
     return {
         create,
         findByUsername,
         getUserById,
+        getAllUsernames,
     };
 };
