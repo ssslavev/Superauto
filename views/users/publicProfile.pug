@@ -1,0 +1,12 @@
+extends ../_layout.pug
+
+block content
+    .container
+        .row
+            .col-sm-6.col-md-4
+                 img(src='https://asgardcms.com/themes/unify/img/testimonials/user.jpg', width="300" alt='...')
+            .col-sm-6.col-md-8
+                h1 #{user.username}
+                hr
+                p Name: #{user.firstName + ' ' + user.lastName}
+                p Email: #{user.email}
