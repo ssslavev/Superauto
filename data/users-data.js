@@ -1,12 +1,11 @@
 const mongodb = require('mongodb');
 const CryptoJs = require('crypto-js');
 const sha1 = CryptoJs.SHA1;
-const Validate = require('./data-validator');
-const validatorInst = new Validate();
-
 
 module.exports = (data) => {
     function create(user) {
+        const Validate = require('./data-validator');
+        const validatorInst = new Validate();
         if (!validatorInst.validateUser(user)) {
             return Promise.reject('User data is not in the correct format!');
         }
