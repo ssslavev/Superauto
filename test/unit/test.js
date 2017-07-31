@@ -10,13 +10,6 @@ describe('Data user tests', () => {
         sinon = sinonModule.sandbox.create();
     });
 
-    afterEach(() => {
-        db.then((d) => {
-            d.collection('users')
-                .deleteOne({ username: expectedUser.username });
-        });
-    });
-
     const expectedUser = {
         username: 'userTest5',
         firstName: 'testFirstName',
@@ -28,6 +21,10 @@ describe('Data user tests', () => {
     const connString = require('./../../config/constants').connectionString;
     const db = require('./../../config/db')(connString);
     const data = require('./../../data/users-data')(db);
+    db.then((d) => {
+            d.collection('users')
+                .deleteOne({ username: expectedUser.username });
+        });
 
     it('Create should match user if data is valid', (done) => {
         data.create(expectedUser)
