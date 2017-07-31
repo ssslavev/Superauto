@@ -1,21 +1,105 @@
 extends ../_layout.pug
 
 block content
-    .container#vehicles-container.detail-container
-        .row
-            .col-sm-6.col-md-4
-                 img(src='http://blog.caranddriver.com/wp-content/uploads/2015/11/BMW-2-series.jpg', width="400" alt='...')
-            .col-sm-6.col-md-8
-                h1 #{advert.title}
-                hr
-                p Price: #{advert.price}lv.
-                p Category: #{advert.category}
-                p Manufacturer: #{advert.manufacturer}
-                p Engine type: #{advert.engine}
-                p Transmission type: #{advert.transmission}
-                p Color: #{advert.color}
-                p Year: #{advert.year}
-                p Region: #{advert.region}
-                p Description: #{advert.description}        
-                        
-                        
+    if user
+        .container#vehicles-container.detail-container(data-id = advert._id data-author = user.username)
+            .row
+                .col-sm-6.col-md-4
+                    img(src='http://blog.caranddriver.com/wp-content/uploads/2015/11/BMW-2-series.jpg', width="400" alt='...')
+                .col-sm-6.col-md-8
+                    h1 #{advert.title}
+                    hr
+                    p Price: #{advert.price}lv.
+                    p Category: #{advert.category}
+                    p Manufacturer: #{advert.manufacturer}
+                    p Engine type: #{advert.engine}
+                    p Transmission type: #{advert.transmission}
+                    p Color: #{advert.color}
+                    p Year: #{advert.year}
+                    p Region: #{advert.region}
+                    p Description: #{advert.description}        
+                    hr
+                    h2 Comments:
+                    hr
+                    if advert.comments
+                        ul
+                            each comment in advert.comments
+                                li
+                                    a #{comment.author}
+                                    p #{comment.text}         
+            .row
+                .col-md-6.col-md-offset-4
+                    .widget-area.no-padding.blank
+                        .status-upload
+                            form
+                                textarea#message-area(placeholder='Enter your comment here')
+                                ul
+                                    li
+                                        a(title='', data-toggle='tooltip', data-placement='bottom', data-original-title='Audio')
+                                            i.fa.fa-music
+                                    li
+                                        a(title='', data-toggle='tooltip', data-placement='bottom', data-original-title='Video')
+                                            i.fa.fa-video-camera
+                                    li
+                                        a(title='', data-toggle='tooltip', data-placement='bottom', data-original-title='Sound Record')
+                                            i.fa.fa-microphone
+                                    li
+                                        a(title='', data-toggle='tooltip', data-placement='bottom', data-original-title='Picture')
+                                            i.fa.fa-picture-o
+                                button#post-message.btn.btn-success.green(type='button')
+                                    i.fa.fa-share
+                                    |  Share
+                        // Status Upload
+                    // Widget Area                
+                                    
+    else
+        .container#vehicles-container.detail-container(data-id = advert._id)      
+            .row
+                .col-sm-6.col-md-4
+                    img(src='http://blog.caranddriver.com/wp-content/uploads/2015/11/BMW-2-series.jpg', width="400" alt='...')
+                .col-sm-6.col-md-8
+                    h1 #{advert.title}
+                    hr
+                    p Price: #{advert.price}lv.
+                    p Category: #{advert.category}
+                    p Manufacturer: #{advert.manufacturer}
+                    p Engine type: #{advert.engine}
+                    p Transmission type: #{advert.transmission}
+                    p Color: #{advert.color}
+                    p Year: #{advert.year}
+                    p Region: #{advert.region}
+                    p Description: #{advert.description}        
+                    hr
+                    h2 Comments:
+                    hr
+                    if advert.comments
+                        ul
+                            each comment in advert.comments
+                                li
+                                    a #{comment.author}
+                                    p #{comment.text}         
+            .row
+                .col-md-6.col-md-offset-4
+                    .widget-area.no-padding.blank
+                        .status-upload
+                            form
+                                textarea#message-area(placeholder='Enter your comment here')
+                                ul
+                                    li
+                                        a(title='', data-toggle='tooltip', data-placement='bottom', data-original-title='Audio')
+                                            i.fa.fa-music
+                                    li
+                                        a(title='', data-toggle='tooltip', data-placement='bottom', data-original-title='Video')
+                                            i.fa.fa-video-camera
+                                    li
+                                        a(title='', data-toggle='tooltip', data-placement='bottom', data-original-title='Sound Record')
+                                            i.fa.fa-microphone
+                                    li
+                                        a(title='', data-toggle='tooltip', data-placement='bottom', data-original-title='Picture')
+                                            i.fa.fa-picture-o
+                                button#post-message.btn.btn-success.green(type='button')
+                                    i.fa.fa-share
+                                    |  Share
+                        // Status Upload
+                    // Widget Area                
+                                    
