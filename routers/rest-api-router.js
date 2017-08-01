@@ -9,8 +9,6 @@ module.exports = function({ app, controller }) {
 
     router.get('/all-adverts', controller.getAllAdverts);
 
-    
-
     app.use('/api', router);
 
     return router;

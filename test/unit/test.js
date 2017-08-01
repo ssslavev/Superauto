@@ -22,9 +22,9 @@ describe('Data user tests', () => {
     const db = require('./../../config/db')(connString);
     const data = require('./../../data/users-data')(db);
     db.then((d) => {
-            d.collection('users')
-                .deleteOne({ username: expectedUser.username });
-        });
+        d.collection('users')
+            .deleteOne({ username: expectedUser.username });
+    });
 
     it('Create should match user if data is valid', (done) => {
         data.create(expectedUser)
