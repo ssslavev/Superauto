@@ -18,4 +18,4 @@ $('#post-message').on('click', function() {
         .then(() => {
             window.location.href = window.location;
         });
-})
+});

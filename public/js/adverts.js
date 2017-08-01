@@ -1,11 +1,12 @@
 /* globals $ jsonRequester*/
 
 $(document).ready(function() {
-    if (window.location.href === 'http://localhost:3001/about') {
+    if (window.location.pathname === '/about') {
         jsonRequester.get('/api/all-adverts')
             .then((adverts) => {
                 console.log('ds');
-                $('.advCount').replaceWith(adverts.length.toString());
+                $('.advCount')
+                .replaceWith('<b>' + adverts.length.toString() + '</b>');
             });
     }
 });
