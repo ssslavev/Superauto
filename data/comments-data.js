@@ -15,7 +15,9 @@ module.exports = (data) => {
                 return db;
             })
             .then((db) => {
-                return db.collection('adverts').update({ '_id': oId }, { $addToSet: { comments: commentToAdd } });
+                return db.collection('adverts')
+                .update({ '_id': oId },
+                    { $addToSet: { comments: commentToAdd } });
             })
             .catch((err) => {
                 console.log(err);

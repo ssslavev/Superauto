@@ -7,9 +7,7 @@ module.exports = function(data) {
                 id: req.body.id,
             };
 
-
             return data.commentsData.create(comment);
-
         },
     };
 };

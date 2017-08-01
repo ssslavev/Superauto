@@ -1,15 +1,9 @@
 const chai = require('chai');
-const sinonModule = require('sinon');
 const cryptoJs = require('crypto-js');
 const sha1 = cryptoJs.SHA1;
 const expect = chai.expect;
 
 describe('Data user tests', () => {
-    let sinon;
-    beforeEach(() => {
-        sinon = sinonModule.sandbox.create();
-    });
-
     const expectedUser = {
         username: 'userTest5',
         firstName: 'testFirstName',
