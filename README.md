@@ -46,7 +46,7 @@ SuperAuto is an application which shows adverts about vehicles. Users can both c
 
 - Search by username
 - Watch project youTube video https://www.youtube.com/watch?v=YbgwtT2h1B8&feature=youtu.be
-- Visit the project on amazon web services http://ec2-52-14-143-46.us-east-2.compute.amazonaws.com/home
+- Visit the project on amazon web services http://ec2-13-59-41-105.us-east-2.compute.amazonaws.com/home
  
 ###Tests (4 tests):###
 
